@@ -6,7 +6,7 @@ function ListItem({todos, setTodos}){
 
     const deleteHandler = async (todoId) => {
         try {
-          const response = await fetch(`http://localhost:5000/todos/${todoId}`, {
+          const response = await fetch(`${API_BASE_URL}/todos/${todoId}`, {
             method: "DELETE",
           });
       
