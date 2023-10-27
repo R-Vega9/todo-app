@@ -1,4 +1,6 @@
 import React, {useState} from "react";
+const API_BASE_URL =
+  process.env.REACT_APP_URL
 
 function ListItem({todos, setTodos}){
 
@@ -27,7 +29,7 @@ function ListItem({todos, setTodos}){
       
         setTodos(updatedTodos);
         try {
-          const response = await fetch(`http://localhost:5000/todos/${todoId}`, {
+          const response = await fetch(`${API_BASE_URL}/todos/${todoId}`, {
             method: "PUT",
             headers: {
               "Content-Type": "application/json",

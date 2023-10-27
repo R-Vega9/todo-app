@@ -4,6 +4,8 @@ import ListHeader from "./Components/ListHeader";
 import ListTodos from "./Components/ListTodos";
 import ListItem from "./Components/ListItem";
 import AddTodo from "./Components/AddTodo";
+const API_BASE_URL =
+  process.env.REACT_APP_URL
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -15,7 +17,7 @@ function App() {
     const abortController = new AbortController();
     async function loadTodos(){
       try {
-        const response = await fetch("http://localhost:5000/todos", 
+        const response = await fetch(`${API_BASE_URL}/todos`, 
         {signal: abortController.signal});
         const todosFromApi = await response.json();
         setTodos(todosFromApi.data)
